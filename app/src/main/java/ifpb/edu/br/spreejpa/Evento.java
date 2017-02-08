@@ -1,5 +1,7 @@
 package ifpb.edu.br.spreejpa;
 
+import java.util.Calendar;
+
 /**
  * Created by Windows 10 on 07/02/2017.
  */
@@ -11,22 +13,26 @@ public class Evento {
     private String nome;
     private String telefone;
     private String endereco;
-    private String horario;
-    private String data;
+
+    private Calendar data;
 
 
-    public Evento(){
+    public Evento(String nome,int dia, int mes, int ano){
 
+        this.nome = nome;
+        this.data = Calendar.getInstance();
+        this.data.set(ano, mes, dia);
     }
 
-    public Evento(String categoria,String nome,String telefone,String endereco,String horario,String data){
+    public Evento(String categoria,String nome,String telefone,String endereco,long data){
         this.categoria=categoria;
         this.nome=nome;
         this.endereco=endereco;
-        this.data=data;
+        this.data = Calendar.getInstance();
+        this.data.setTimeInMillis(data);
 
         this.telefone=telefone;
-        this.horario=horario;
+
 
 
     }
@@ -71,19 +77,19 @@ public class Evento {
         this.endereco = endereco;
     }
 
-    public String getHorario() {
-        return horario;
+
+
+    public String getData(){
+        return String.format("%d/%d/%d", this.data.get(Calendar.DAY_OF_MONTH),
+                this.data.get(Calendar.MONTH) + 1,
+                this.data.get(Calendar.YEAR));
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public long getDataLong(){
+        return this.data.getTimeInMillis();
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
+    public void setData(Calendar data) {
         this.data = data;
     }
 }
