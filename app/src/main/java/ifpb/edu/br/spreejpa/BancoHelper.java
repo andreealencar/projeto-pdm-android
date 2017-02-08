@@ -24,10 +24,15 @@ public class BancoHelper extends SQLiteOpenHelper
 
         db.execSQL("CREATE TABLE IF NOT EXISTS Evento(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "categoria VARCHAR(100), " +
+                "CONSTRAINT FK_Categoria FOREIGN KEY(categoriaid) REFERENCES Categoria(categoriaid), " +
                 "nome VARCHAR(100), " +
                 "telefone VARCHAR(100),"+
-                "data VARCHAR(100));");
+                "endereco VARCHAR(100),"+
+                "data DATETIME);");
+
+        db.execSQL("CREATE TABLE IF NOT EXISTS Categoria(" +
+                "categoriaId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "nome VARCHAR(100));");
 
     }
 
