@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class BancoHelper extends SQLiteOpenHelper
 {
     public BancoHelper(Context context) {
-        super(context, "spreeDB", null, 1);
+        super(context, "spreeDB.db", null, 1);
     }
 
     @Override
