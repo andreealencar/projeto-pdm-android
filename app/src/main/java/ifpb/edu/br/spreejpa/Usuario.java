@@ -63,10 +63,24 @@ public class Usuario {
         this.login = login;
     }
 
-    public void setSenha(String senha) {
+    public void setSenhaHash(String senha) {
         // Mudança no metodo para para ser salvo o hash como String
         this.senha = Hashing.sha256()
                 .hashString(senha, StandardCharsets.UTF_8)
                 .toString();
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
     }
 }

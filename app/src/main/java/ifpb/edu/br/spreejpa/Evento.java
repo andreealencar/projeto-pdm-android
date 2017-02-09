@@ -9,32 +9,30 @@ import java.util.Calendar;
 public class Evento {
 
     private int id;
-    private String categoria;
+
     private String nome;
     private String telefone;
     private String endereco;
+    private int categoriaid;
 
     private Calendar data;
 
 
-    public Evento(String nome,int dia, int mes, int ano){
+//    public Evento(String nome,){
+//
+//        this.nome = nome;
+//        this.data = Calendar.getInstance();
+//
+//    }
 
-        this.nome = nome;
-        this.data = Calendar.getInstance();
-        this.data.set(ano, mes, dia);
-    }
-
-    public Evento(String categoria,String nome,String telefone,String endereco,long data){
-        this.categoria=categoria;
+    public Evento(int categoriaid,String nome,String telefone,String endereco,int dia, int mes, int ano,long data){
+        this.categoriaid=categoriaid;
         this.nome=nome;
         this.endereco=endereco;
         this.data = Calendar.getInstance();
+        this.data.set(ano, mes, dia);
         this.data.setTimeInMillis(data);
-
         this.telefone=telefone;
-
-
-
     }
 
     public int getId() {
@@ -45,12 +43,12 @@ public class Evento {
         this.id = id;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public int getCategoriaid() {
+        return categoriaid;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategoriaid(int categoriaid) {
+        this.categoriaid = categoriaid;
     }
 
     public String getNome() {
