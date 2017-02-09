@@ -16,7 +16,7 @@ package ifpb.edu.br.spreejpa;
 /**
  * Created by admin on 27/01/17.
  */
-public class UsuarioDAO {
+public class   UsuarioDAO {
     private SQLiteDatabase banco;
 
     public UsuarioDAO(Context context){
@@ -43,7 +43,7 @@ public class UsuarioDAO {
                 String login = c.getString(c.getColumnIndex("login"));
                 String senha = c.getString(c.getColumnIndex("senha"));
                 Usuario user = new Usuario(nome,login);
-                user.setSenha(senha);
+                user.setSenhaHash(senha);
                 lista.add(user);
             } while (c.moveToNext());
         }
@@ -51,14 +51,16 @@ public class UsuarioDAO {
     }
 
     public Usuario montaUsuario(Cursor cursor) {
-        if (cursor.getCount() == 0) {
+        if (cursor.getCount() < 1) {
             return null;
         }
         Integer id = cursor.getInt(cursor.getColumnIndex("id"));
-        String usuario = cursor.getString(cursor.getColumnIndex("login"));
+        String nome = cursor.getString(cursor.getColumnIndex("nome"));
+        String email = cursor.getString(cursor.getColumnIndex("login"));
         String senha = cursor.getString(cursor.getColumnIndex("senha"));
-        Usuario u = new Usuario(usuario, senha);
+        Usuario u = new Usuario(email, nome);
         u.setId(id);
+        u.setSenha(senha);
         return u;
     }
 
