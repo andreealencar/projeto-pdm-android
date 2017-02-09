@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.nio.charset.StandardCharsets;
 
@@ -31,18 +32,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    String loginField = LoginActivity.this.login.toString();
-                    String senhaField = Hashing.sha256()
-                            .hashString(LoginActivity.this.senha.toString(), StandardCharsets.UTF_8)
-                            .toString();
+                    String loginField = LoginActivity.this.login.getText().toString();
+                    String senhaField = Hashing.sha256().hashString(LoginActivity.this.senha.getText().toString(), StandardCharsets.UTF_8).toString();
                     if (userDAO.validaLogin(loginField, senhaField)){
-                        Log.i("IFPB", loginField.toString());
-                        Log.i("IFPB", senhaField.toString());
                         Log.i("IFPB", "DEU CERTO!");
+                        Intent intent = new Intent(LoginActivity.this, ListagemCategoriaActivity.class);
+                        startActivity(intent);
                     }else {
-                        Log.i("IFPB", loginField.toString());
-                        Log.i("IFPB", senhaField.toString());
-                        Log.i("IFPB", "DEU CERTO!");
+                        Log.i("IFPB", "DEU ERRADO!");
+                        Toast.makeText(getApplicationContext(), "Valores para Email ou Senha invalidos! ", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

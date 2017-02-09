@@ -32,11 +32,7 @@ public class Evento {
         this.data = Calendar.getInstance();
         this.data.set(ano, mes, dia);
         this.data.setTimeInMillis(data);
-
         this.telefone=telefone;
-
-
-
     }
 
     public int getId() {

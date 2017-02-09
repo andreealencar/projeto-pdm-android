@@ -23,14 +23,11 @@ public class EventoDAO {
         public void insert(Evento p){
             ContentValues cv = new ContentValues();
 
-            cv.put("categoriaid", p.getCategoriaid());
+            cv.put("categoria", p.getCategoriaid());
             cv.put("nome", p.getNome());
             cv.put("telefone", p.getTelefone());
             cv.put("endereco", p.getEndereco());
             cv.put("data", p.getData());
-
-
-
 
             this.banco.insert("Evento", null, cv);
         }

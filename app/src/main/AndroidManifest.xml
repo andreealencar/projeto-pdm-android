@@ -17,11 +17,8 @@
 
             </intent-filter>
         </activity>
-
-        <activity android:name=".ListagemCategoria"/>
-
-        <activity android:name=".ListagemEventos">
-
+        <activity android:name=".ListagemCategoriaActivity"/>
+        <activity android:name=".ListagemEventosActivity">
         </activity>
 
 

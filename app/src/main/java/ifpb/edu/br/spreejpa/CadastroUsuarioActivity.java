@@ -35,7 +35,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 password = CadastroUsuarioActivity.this.edtSenha.getText().toString();
 
                 Usuario user = new Usuario(email, name);
-                user.setSenha(password);
+                user.setSenhaHash(password);
                 CadastroUsuarioActivity.this.userDAO.insert(user);
                 Log.i("IFPB", "Usuario cadastrado!");
                 Intent intent = new Intent(CadastroUsuarioActivity.this, LoginActivity.class);

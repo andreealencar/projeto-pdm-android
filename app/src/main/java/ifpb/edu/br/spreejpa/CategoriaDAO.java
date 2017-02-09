@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,30 +24,40 @@ public class CategoriaDAO {
 
     public void insert(Categoria c){
         ContentValues cv = new ContentValues();
-        cv.put("categoriaid", c.getId());
         cv.put("nome", c.getNome());
-
-
-
-
-
         this.banco.insert("Categoria", null, cv);
     }
 
 
-    public List<String> getCategorias(){
-
-        String sql="SELECT nome FROM Categoria";
-        Cursor c =banco.rawQuery(sql,null);
-        ArrayList<String> lista=null;
-
+    public List<Categoria> getCategorias() {
+        List<Categoria> lista = new ArrayList<Categoria>();
+        String colunas[] = {"nome"};
+        Cursor c = this.banco.query("categoria", colunas, null, null, null, null, "nome");
+        Log.i("IFPB", c.toString());
         if (c.getCount() > 0) {
-            lista=new ArrayList<String>();
             c.moveToFirst();
-
             do {
+                int id = c.getInt(c.getColumnIndex("categoriaId"));
+                String nome = c.getString(c.getColumnIndex("nome"));
+                Categoria cat = new Categoria(nome);
+                lista.add(cat);
+            } while (c.moveToNext());
+        }
+        return lista;
+    }
 
-                lista.add(c.getString(0));
+    public List<Categoria> get(){
+        List<Categoria> lista = new ArrayList<Categoria>();
+        String colunas[] = {"categoriaId","nome"};
+        Cursor c = this.banco.query("Categoria", colunas, null, null, null, null, "nome");
+        if (c.getCount() > 0) {
+            c.moveToFirst();
+            do {
+                int id = c.getInt(c.getColumnIndex("categoriaId"));
+                String nome = c.getString(c.getColumnIndex("nome"));
+                Categoria cat = new Categoria(nome);
+                cat.setId(id);
+                lista.add(cat);
             } while (c.moveToNext());
         }
         return lista;
