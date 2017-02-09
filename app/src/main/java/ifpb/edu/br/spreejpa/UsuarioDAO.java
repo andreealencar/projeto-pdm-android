@@ -84,4 +84,16 @@ public class   UsuarioDAO {
         }
         return false;
     }
+    public boolean isAdmin(String email, String senha) {
+        String sql = "SELECT * FROM Usuario WHERE login = ? AND senha = ? AND admin = 1";
+        String[] selectionArgs = new String[] { email, senha };
+        Cursor cursor = this.banco.rawQuery(sql, selectionArgs);
+        cursor.moveToFirst();
+
+        // Retorna se usuario é admin ou não
+        if (cursor.getCount() < 1) {
+            return false;
+        }
+        return true;
+    }
 }

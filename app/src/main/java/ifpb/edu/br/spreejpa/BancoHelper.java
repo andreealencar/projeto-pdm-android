@@ -19,8 +19,8 @@ public class BancoHelper extends SQLiteOpenHelper
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome VARCHAR(100), " +
                 "login VARCHAR(100),"+
-                "senha VARCHAR(100)),"+
-                "admin BOOLEAN;");
+                "senha VARCHAR(100),"+
+                "admin BOOLEAN);");
 
         db.execSQL("CREATE TABLE IF NOT EXISTS Categoria(" +
                 "categoriaId INTEGER PRIMARY KEY AUTOINCREMENT, " +

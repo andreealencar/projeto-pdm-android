@@ -35,9 +35,16 @@ public class LoginActivity extends AppCompatActivity {
                     String loginField = LoginActivity.this.login.getText().toString();
                     String senhaField = Hashing.sha256().hashString(LoginActivity.this.senha.getText().toString(), StandardCharsets.UTF_8).toString();
                     if (userDAO.validaLogin(loginField, senhaField)){
-                        Log.i("IFPB", "DEU CERTO!");
-                        Intent intent = new Intent(LoginActivity.this, ListagemCategoriaActivity.class);
-                        startActivity(intent);
+                        if (userDAO.isAdmin(loginField, senhaField)){
+                            Log.i("IFPB", "USER É ADMIN!");
+                            Intent intent = new Intent(LoginActivity.this, MainAdminActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Log.i("IFPB", "DEU CERTO!");
+                            Intent intent = new Intent(LoginActivity.this, ListagemCategoriaActivity.class);
+                            startActivity(intent);
+                        }
+
                     }else {
                         Log.i("IFPB", "DEU ERRADO!");
                         Toast.makeText(getApplicationContext(), "Valores para Email ou Senha invalidos! ", Toast.LENGTH_SHORT).show();

@@ -25,12 +25,10 @@ public class Evento {
 //
 //    }
 
-    public Evento(int categoriaid,String nome,String telefone,String endereco,int dia, int mes, int ano,long data){
-        this.categoriaid=categoriaid;
+    public Evento(String nome,String telefone,String endereco, long data){
         this.nome=nome;
         this.endereco=endereco;
         this.data = Calendar.getInstance();
-        this.data.set(ano, mes, dia);
         this.data.setTimeInMillis(data);
         this.telefone=telefone;
     }

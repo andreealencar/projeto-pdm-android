@@ -28,24 +28,6 @@ public class CategoriaDAO {
         this.banco.insert("Categoria", null, cv);
     }
 
-
-    public List<Categoria> getCategorias() {
-        List<Categoria> lista = new ArrayList<Categoria>();
-        String colunas[] = {"nome"};
-        Cursor c = this.banco.query("categoria", colunas, null, null, null, null, "nome");
-        Log.i("IFPB", c.toString());
-        if (c.getCount() > 0) {
-            c.moveToFirst();
-            do {
-                int id = c.getInt(c.getColumnIndex("categoriaId"));
-                String nome = c.getString(c.getColumnIndex("nome"));
-                Categoria cat = new Categoria(nome);
-                lista.add(cat);
-            } while (c.moveToNext());
-        }
-        return lista;
-    }
-
     public List<Categoria> get(){
         List<Categoria> lista = new ArrayList<Categoria>();
         String colunas[] = {"categoriaId","nome"};
@@ -61,5 +43,25 @@ public class CategoriaDAO {
             } while (c.moveToNext());
         }
         return lista;
+    }
+
+    // Metodo verifica se já existe uma categoria com o nome informado
+    // compara os nomes ambos em minusculo.
+    public boolean jaExiste(Categoria categoria) {
+        List<Categoria> lista = new ArrayList<Categoria>();
+        String colunas[] = {"nome"};
+        Cursor c = this.banco.query("Categoria", colunas, null, null, null, null, "nome");
+        String nomeCategoria = categoria.getNome().toLowerCase();
+
+        if (c.getCount() > 0) {
+            c.moveToFirst();
+            do {
+                String nome = c.getString(c.getColumnIndex("nome"));
+                if (nome.toLowerCase().equals(nomeCategoria)) {
+                    return true;
+                }
+            } while (c.moveToNext());
+        }
+        return false;
     }
 }
