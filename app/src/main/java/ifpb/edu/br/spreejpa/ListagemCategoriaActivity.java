@@ -17,13 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListagemCategoriaActivity extends AppCompatActivity {
-
-//
-//    SQLiteDatabase db;
-//    Cursor cursor;
-//    SimpleCursorAdapter ad;
-//    ListView listViewCategoria;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,22 +24,6 @@ public class ListagemCategoriaActivity extends AppCompatActivity {
 
         ArrayList<Categoria> Categorias = null;
         CategoriaDAO daoC = new CategoriaDAO(this);
-//
-//        Categoria c = new Categoria("Rock");
-//        daoC.insert(c);
-//        Categoria c1 = new Categoria("Samba");
-//        daoC.insert(c1);
-//        Categoria c2 = new Categoria("Forró");
-//        daoC.insert(c2);
-//        Categoria c3 = new Categoria("Eletronica");
-//        daoC.insert(c3);
-//        Categoria c4 = new Categoria("Funk");
-//        daoC.insert(c4);
-//
-//        Evento e = new Evento(2, "Festa da luz", "998249393", "Bessa shopping", 11, 02, 2016, 40000);
-//
-//        daoE.insert(e);
-
         Categorias = (ArrayList<Categoria>) daoC.get();
         List<String> nomes = new ArrayList <String>();
 
@@ -63,7 +40,7 @@ public class ListagemCategoriaActivity extends AppCompatActivity {
     private class OnClickList implements AdapterView.OnItemClickListener{
     @Override
         public void onItemClick(AdapterView<?> parent,View view,int position,long id){
-            Intent i=new Intent("listar");
+            Intent i=new Intent(ListagemCategoriaActivity.this, ListagemEventosActivity.class);
             startActivity(i);
         }
     }
