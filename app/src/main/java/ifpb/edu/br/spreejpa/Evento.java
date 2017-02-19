@@ -9,7 +9,7 @@ import java.util.Calendar;
 public class Evento {
 
     private int id;
-
+    private int Icon=R.drawable.img1;
     private String nome;
     private String telefone;
     private String endereco;
@@ -17,6 +17,14 @@ public class Evento {
 
     private Calendar data;
 
+    public Evento(String nome,String telefone,String endereco, long data){
+        this.nome=nome;
+        this.endereco=endereco;
+        this.data = Calendar.getInstance();
+        this.data.setTimeInMillis(data);
+        this.telefone=telefone;
+        this.categoriaid=categoriaid;
+    }
 
 //    public Evento(String nome,){
 //
@@ -25,16 +33,13 @@ public class Evento {
 //
 //    }
 
-    public Evento(String nome,String telefone,String endereco, long data){
-        this.nome=nome;
-        this.endereco=endereco;
-        this.data = Calendar.getInstance();
-        this.data.setTimeInMillis(data);
-        this.telefone=telefone;
-    }
+
 
     public int getId() {
         return id;
+    }
+    public int getIcon() {
+        return Icon;
     }
 
     public void setId(int id) {
