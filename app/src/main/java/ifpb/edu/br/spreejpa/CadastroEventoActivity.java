@@ -13,8 +13,10 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import static android.support.test.InstrumentationRegistry.getContext;
+
 public class CadastroEventoActivity extends AppCompatActivity {
-    EditText eventoNome, eventoTelefone, eventoEndereco;
+    EditText eventoNome, eventoTelefone, eventoEndereco,eventoCategoria;
     DatePicker eventoData;
     Button btnEnviar;
     EventoDAO eventoDAO;
@@ -30,6 +32,7 @@ public class CadastroEventoActivity extends AppCompatActivity {
         this.eventoTelefone = (EditText) findViewById(R.id.telefoneEvento);
         this.eventoEndereco = (EditText) findViewById(R.id.enderecoEvento);
         this.eventoData = (DatePicker) findViewById(R.id.dataEvento);
+        this.eventoCategoria=(EditText)findViewById(R.id.categoriaEvento);
 
         this.btnEnviar = (Button) findViewById(R.id.salvarEvento);
         this.btnEnviar.setOnClickListener(new View.OnClickListener() {
@@ -38,9 +41,12 @@ public class CadastroEventoActivity extends AppCompatActivity {
                 String nome = CadastroEventoActivity.this.eventoNome.getText().toString();
                 String telefone = CadastroEventoActivity.this.eventoTelefone.getText().toString();
                 String endereco = CadastroEventoActivity.this.eventoEndereco.getText().toString();
+                String categoria = CadastroEventoActivity.this.eventoCategoria.getText().toString();
                 int dia = CadastroEventoActivity.this.eventoData.getDayOfMonth();
                 int mes = CadastroEventoActivity.this.eventoData.getMonth();
                 int ano = CadastroEventoActivity.this.eventoData.getYear();
+
+
 
                 GregorianCalendar calendar = new GregorianCalendar(ano, mes, dia);
                 calendar.getTimeInMillis();
