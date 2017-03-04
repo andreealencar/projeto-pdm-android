@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.activity;
 
 import android.content.Intent;
 import android.support.test.espresso.core.deps.guava.hash.Hashing;
@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.nio.charset.StandardCharsets;
+
+import ifpb.edu.br.spreejpa.R;
+import ifpb.edu.br.spreejpa.dao.UsuarioDAO;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText login, senha;

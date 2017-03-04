@@ -1,20 +1,19 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ifpb.edu.br.spreejpa.dao.CategoriaDAO;
+import ifpb.edu.br.spreejpa.R;
+import ifpb.edu.br.spreejpa.model.Categoria;
 
 public class ListagemCategoriaActivity extends AppCompatActivity {
     @Override

@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.model;
 
 import java.util.Calendar;
 
@@ -7,30 +7,20 @@ import java.util.Calendar;
  */
 
 public class Evento {
-
     private int id;
-
     private String nome;
     private String telefone;
     private String endereco;
     private int categoriaid;
-
     private Calendar data;
 
-
-//    public Evento(String nome,){
-//
-//        this.nome = nome;
-//        this.data = Calendar.getInstance();
-//
-//    }
-
-    public Evento(String nome,String telefone,String endereco, long data){
-        this.nome=nome;
-        this.endereco=endereco;
+    public Evento(String nome,String telefone,String endereco, long data, int categoriaid){
+        this.nome = nome;
+        this.endereco = endereco;
         this.data = Calendar.getInstance();
         this.data.setTimeInMillis(data);
-        this.telefone=telefone;
+        this.telefone = telefone;
+        this.categoriaid = categoriaid;
     }
 
     public int getId() {
@@ -72,8 +62,6 @@ public class Evento {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
-
 
     public String getData(){
         return String.format("%d/%d/%d", this.data.get(Calendar.DAY_OF_MONTH),

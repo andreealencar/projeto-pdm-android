@@ -1,15 +1,15 @@
-package ifpb.edu.br.spreejpa;
-import android.app.usage.UsageEvents;
+package ifpb.edu.br.spreejpa.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
+
+import ifpb.edu.br.spreejpa.BancoHelper;
+import ifpb.edu.br.spreejpa.model.Evento;
 
 /**
  * Created by Windows 10 on 07/02/2017.
@@ -50,9 +50,9 @@ public class EventoDAO {
                     String telefone = c.getString(c.getColumnIndex("telefone"));
                     Long data = c.getLong(c.getColumnIndex("data"));
 
-                    Evento e = new Evento(nome,telefone,endereco,data);
+                    Evento e = new Evento(nome,telefone,endereco,data, categoria);
                     e.setCategoriaid(categoria);
-                    lista.add(new Evento(nome,telefone,endereco,data));
+                    lista.add(new Evento(nome,telefone,endereco,data, categoria));
                 } while (c.moveToNext());
             }
             return lista;

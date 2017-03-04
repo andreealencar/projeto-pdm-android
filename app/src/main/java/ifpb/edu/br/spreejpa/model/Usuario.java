@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.model;
 
 import android.support.test.espresso.core.deps.guava.hash.Hashing;
 

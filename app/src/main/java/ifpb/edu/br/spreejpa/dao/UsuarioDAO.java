@@ -1,17 +1,14 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.dao;
         import android.content.ContentValues;
         import android.content.Context;
         import android.database.Cursor;
-        import android.database.SQLException;
         import android.database.sqlite.SQLiteDatabase;
-        import android.support.test.espresso.core.deps.guava.hash.Hashing;
-        import android.util.Log;
 
-        import java.nio.charset.StandardCharsets;
-        import java.sql.PreparedStatement;
-        import java.sql.ResultSet;
         import java.util.ArrayList;
         import java.util.List;
+
+        import ifpb.edu.br.spreejpa.BancoHelper;
+        import ifpb.edu.br.spreejpa.model.Usuario;
 
 /**
  * Created by admin on 27/01/17.

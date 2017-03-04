@@ -1,13 +1,15 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ifpb.edu.br.spreejpa.BancoHelper;
+import ifpb.edu.br.spreejpa.model.Categoria;
 
 /**
  * Created by Windows 10 on 08/02/2017.

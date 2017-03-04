@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import ifpb.edu.br.spreejpa.dao.CategoriaDAO;
+import ifpb.edu.br.spreejpa.R;
+import ifpb.edu.br.spreejpa.model.Categoria;
 
 public class CadastroCategoriaActivity extends AppCompatActivity {
     Button btnEnviar;

@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ifpb.edu.br.spreejpa.CadastroEventoActivity"
+    tools:context="ifpb.edu.br.spreejpa.activity.CadastroEventoActivity"
     android:orientation="vertical">
 
     <TextView
@@ -42,12 +42,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <DatePicker
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data do evento"/>
+
+    <EditText
         android:id="@+id/dataEvento"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" />
 
-    </DatePicker>
+    <RadioGroup
+        android:id="@+id/radioCateg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/catForro"
+            android:text="Forro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/catSamba"
+            android:text="Samba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/catEletronica"
+            android:text="Eletronica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/catRock"
+            android:text="Rock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/catGospel"
+            android:text="Gospel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/catSertanejo"
+            android:text="Sertanejo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/salvarEvento"

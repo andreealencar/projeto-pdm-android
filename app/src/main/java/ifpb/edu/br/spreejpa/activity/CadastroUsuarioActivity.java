@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import ifpb.edu.br.spreejpa.R;
+import ifpb.edu.br.spreejpa.dao.UsuarioDAO;
+import ifpb.edu.br.spreejpa.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
     EditText edtNome, edtEmail, edtSenha;
