@@ -78,4 +78,21 @@ public class EventoDAO {
             }
             return false;
         }
+
+//    public Evento getById(int id){
+//        Evento e;
+//        String colunas[] = {"id"};
+//        Cursor c = this.banco.query("Evento", colunas, null, null, null, null, "id");
+//        if(c.getCount()>0){
+//            c.moveToFirst();
+//            do{
+//                int idEvento=c.getInt(c.getColumnIndex("id"));
+//                if(idEvento==id){
+//                    return
+//                }
+//
+//            }
+//
+//        }
+//    }
     }
