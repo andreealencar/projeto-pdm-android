@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

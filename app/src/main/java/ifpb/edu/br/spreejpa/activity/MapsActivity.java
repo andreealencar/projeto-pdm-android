@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.activity;
 
 
 import android.location.Address;
@@ -19,6 +19,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.List;
+
+import ifpb.edu.br.spreejpa.R;
 
 import static android.support.test.InstrumentationRegistry.getContext;
 

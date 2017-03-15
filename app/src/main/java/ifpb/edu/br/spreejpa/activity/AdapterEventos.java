@@ -1,4 +1,4 @@
-package ifpb.edu.br.spreejpa;
+package ifpb.edu.br.spreejpa.activity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import ifpb.edu.br.spreejpa.R;
+import ifpb.edu.br.spreejpa.model.Evento;
 
 /**
  * Created by Windows 10 on 19/02/2017.
@@ -52,7 +55,7 @@ public class AdapterEventos extends BaseAdapter {
             TextView data= (TextView) view.findViewById(R.id.data);
 
             Evento evento = eventos.get(position);
-            img.setImageResource(evento.getIcon());
+//            img.setImageResource(evento.getIcon());
             titulo.setText(evento.getNome());
             data.setText(evento.getData());
 

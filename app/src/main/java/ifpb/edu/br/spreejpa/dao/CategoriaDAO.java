@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import ifpb.edu.br.spreejpa.BancoHelper;
+import ifpb.edu.br.spreejpa.database.BancoHelper;
 import ifpb.edu.br.spreejpa.model.Categoria;
 
 /**
