@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ifpb.edu.br.spreejpa.database.BancoHelper;
+import ifpb.edu.br.spreejpa.model.Categoria;
 import ifpb.edu.br.spreejpa.model.Evento;
 
 /**
@@ -78,7 +79,37 @@ public class EventoDAO {
             }
             return false;
         }
+        public List<Evento> EventosPorCategoria(Integer i){
 
+            ArrayList<Evento> eventos= new ArrayList<Evento>();
+
+            String sql = "SELECT * FROM Evento WHERE categoria = ?";
+            String categoriaid = String.valueOf(i);
+            String[] selectionArgs = new String[] {categoriaid};
+            Cursor c = this.banco.rawQuery(sql, selectionArgs);
+            Log.i("IFPB", c.toString());
+            if (c.getCount() > 0) {
+                c.moveToFirst();
+
+                do{
+                    int id = c.getInt(c.getColumnIndex("id"));
+                    String nome = c.getString(c.getColumnIndex("nome"));
+                    int categoria = c.getInt(c.getColumnIndex("categoria"));
+                    String endereco = c.getString(c.getColumnIndex("endereco"));
+                    String telefone = c.getString(c.getColumnIndex("telefone"));
+                    Long data = c.getLong(c.getColumnIndex("data"));
+
+                    Evento e = new Evento(nome,telefone,endereco,data, categoria);
+                    e.setCategoriaid(categoria);
+                    eventos.add(new Evento(nome,telefone,endereco,data, categoria));
+
+                }while(c.moveToNext());
+            }
+
+            return eventos;
+
+
+        }
 //    public Evento getById(int id){
 //        Evento e;
 //        String colunas[] = {"id"};

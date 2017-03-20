@@ -25,6 +25,7 @@ public class   UsuarioDAO {
         cv.put("nome", p.getNome());
         cv.put("login", p.getLogin());
         cv.put("senha", p.getSenha());
+        cv.put("admin",p.isAdmin());
         this.banco.insert("Usuario", null, cv);
     }
 
