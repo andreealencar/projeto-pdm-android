@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.List;
 
 import ifpb.edu.br.spreejpa.R;
+import ifpb.edu.br.spreejpa.dao.EventoDAO;
 
 import static android.support.test.InstrumentationRegistry.getContext;
 
@@ -44,9 +45,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-////            Toast.makeText(getApplicationContext(),"Não possui localização",Toast.LENGTH_SHORT).show();
+
 
     public void onMapReady(GoogleMap map) {
+
+//       Parte que recupera o endereço do evento direto do banco (ainda não foi testado)
+
+//        EventoDAO daoE= new EventoDAO(getContext());
+//
+//
+//        String endereco= (String) getIntent().getSerializableExtra("endereco");
+//        LatLng coordenada = pegaCoordenadaDoEndereco(endereco);
+//        if (coordenada != null) {
+//            MarkerOptions marcador = new MarkerOptions();
+//            marcador.position(coordenada);
+//            marcador.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+//
+//
+//            mapa.addMarker(marcador);
+//
+//        }else{
+//            Toast.makeText(getApplicationContext(),"Não possui localização",Toast.LENGTH_SHORT).show();
+//        }
+
         map.addMarker(new MarkerOptions().position(new LatLng(lat,longi)).title("Bessa grill"));
         map.getUiSettings().setZoomControlsEnabled(true);
         CameraUpdate location= CameraUpdateFactory.newLatLngZoom(ll,20);
@@ -61,24 +82,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
-//        EventoDAO eventoDAO= new EventoDAO(getContext());
-//        for (Evento evento : eventoDAO)
-//
-//    {
-//        LatLng coordenada = pegaCoordenadaDoEndereco(evento.getEndereco());
-//        if (coordenada != null) {
-//            MarkerOptions marcador = new MarkerOptions();
-//            marcador.position(coordenada);
-//            marcador.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-//            marcador.title(evento.getNome());
-//
-//            mapa.addMarker(marcador);
-//
-//        }
-//    }'
-//            '
-//        eventoDAO.close();
 
 
 

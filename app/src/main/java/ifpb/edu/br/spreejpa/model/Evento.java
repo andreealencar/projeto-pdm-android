@@ -2,13 +2,15 @@ package ifpb.edu.br.spreejpa.model;
 
 import java.util.Calendar;
 
+import ifpb.edu.br.spreejpa.R;
+
 /**
  * Created by Windows 10 on 07/02/2017.
  */
 
 public class Evento {
     private int id;
-//    private int Icon=R.drawable.img1;
+    private int Icon= R.drawable.img1;
     private String nome;
     private String telefone;
     private String endereco;
@@ -27,9 +29,9 @@ public class Evento {
     public int getId() {
         return id;
     }
-//    public int getIcon() {
-//        return Icon;
-//    }
+    public int getIcon() {
+        return Icon;
+    }
 
     public void setId(int id) {
         this.id = id;
