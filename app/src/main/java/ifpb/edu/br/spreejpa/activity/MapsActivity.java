@@ -1,10 +1,12 @@
 package ifpb.edu.br.spreejpa.activity;
 
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 
@@ -27,13 +29,6 @@ import static android.support.test.InstrumentationRegistry.getContext;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
-    double lat=-7.065485;
-
-
-
-    double longi=-34.839783;
-    LatLng ll= new LatLng(lat,longi);
-
     private GoogleMap mapa;
 
     @Override
@@ -45,53 +40,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-
-
     public void onMapReady(GoogleMap map) {
+    // Add a marker in Sydney, Australia, and move the camera.
+        Intent intent = getIntent();
+        String endereco = (String) intent.getStringExtra("endereco");
+
+        LatLng local = pegaCoordenadaDoEndereco(endereco);
+        Log.i("IFPB", local.toString());
+
+        map.addMarker(new MarkerOptions().position(local).title("Local do evento"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(local));
+
+        CameraUpdate zoom= CameraUpdateFactory.zoomTo(20);
+        map.animateCamera(zoom,2000,null);
+        map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
 //       Parte que recupera o endereço do evento direto do banco (ainda não foi testado)
 
-//        EventoDAO daoE= new EventoDAO(getContext());
-//
-//
-//        String endereco= (String) getIntent().getSerializableExtra("endereco");
-//        LatLng coordenada = pegaCoordenadaDoEndereco(endereco);
+//        Toast.makeText(this, endereco, Toast.LENGTH_SHORT).show();
+
 //        if (coordenada != null) {
 //            MarkerOptions marcador = new MarkerOptions();
 //            marcador.position(coordenada);
 //            marcador.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
 //
-//
 //            mapa.addMarker(marcador);
-//
 //        }else{
 //            Toast.makeText(getApplicationContext(),"Não possui localização",Toast.LENGTH_SHORT).show();
 //        }
 
-        map.addMarker(new MarkerOptions().position(new LatLng(lat,longi)).title("Bessa grill"));
-        map.getUiSettings().setZoomControlsEnabled(true);
-        CameraUpdate location= CameraUpdateFactory.newLatLngZoom(ll,20);
-
-        CameraUpdate zoom= CameraUpdateFactory.zoomTo(20);
-
-        map.moveCamera(location);
-
-        map.animateCamera(zoom,3000,null);
-
-        map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+//        map.addMarker(new MarkerOptions().position(new LatLng(lat,longi)).title("Bessa grill"));
+//        map.getUiSettings().setZoomControlsEnabled(true);
+//        CameraUpdate location= CameraUpdateFactory.newLatLngZoom(ll,20);
+//        map.moveCamera(location);
     }
-
-
-
-
-
-
-
 
     private LatLng pegaCoordenadaDoEndereco(String endereco){
         // esse try catch serve para verificar a conexao
         try {
-            Geocoder geocoder = new Geocoder(getContext()); //transforma uma string em latitude e longitude
+            Geocoder geocoder = new Geocoder(this); //transforma uma string em latitude e longitude
             List<Address> resultados = geocoder.getFromLocationName(endereco, 1); //https://developer.android.com/reference/android/location/Geocoder.html
 
             if (!resultados.isEmpty()){
