@@ -24,8 +24,7 @@ import ifpb.edu.br.spreejpa.model.Categoria;
 import ifpb.edu.br.spreejpa.model.Evento;
 
 
-
-public class ListagemEventosActivity extends AppCompatActivity implements Serializable{
+public class ListagemEventosActivity extends AppCompatActivity implements Serializable {
     Button btnLocalization;
 
     @Override
@@ -33,60 +32,31 @@ public class ListagemEventosActivity extends AppCompatActivity implements Serial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_eventos);
 
-        ListView listViewEventos= (ListView) findViewById(R.id.listViewEventos);
-//            Evento e1=new Evento("Show Legião urbana","43536262","Bairro dos Estados, Joao Pessoa Paraíba",1000000,2);
-//             Evento e2=new Evento("Transpiration","41435351","Conde",1000000,1);
-//            Evento e3=new Evento("Vintage Culture","989898989","Praia de Camboinha",200000,7);
-//        Evento e4=new Evento("Liquid Sky","43536262","Pipa, Rio Grande do Norte",1000000,3);
+        ListView listViewEventos = (ListView) findViewById(R.id.listViewEventos);
 
         ArrayList<Evento> eventos = null;
-        EventoDAO daoE= new EventoDAO(this);
-//            daoE.insert(e1);
-//            daoE.insert(e2);
-        //            daoE.insert(e3);
-        //            daoE.insert(e4);
+        EventoDAO daoE = new EventoDAO(this);
 
-
-
-
-
-        Integer categoriaid= (Integer) getIntent().getSerializableExtra("idcategoria");
+        Integer categoriaid = (Integer) getIntent().getSerializableExtra("idcategoria");
 
         eventos = (ArrayList<Evento>) daoE.EventosPorCategoria(categoriaid);
 
-
-
-            AdapterEventos adapterEventos=new AdapterEventos(this,eventos);
-            listViewEventos.setAdapter(adapterEventos);
-
-
-
-
-
-
-
-
+        AdapterEventos adapterEventos = new AdapterEventos(this, eventos);
+        listViewEventos.setAdapter(adapterEventos);
     }
 
+}
 
-
-    }
-
-
-
-
-
-//
 //    private class OnClickList implements AdapterView.OnItemClickListener{
 //        @Override
 //        public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 //
 //            ArrayList<Evento> eventos = null;
-//            EventoDAO daoE= new EventoDAO(ListagemEventosActivity.this);
-//            Integer categoriaid= (Integer) getIntent().getSerializableExtra("idcategoria");
+//            EventoDAO daoE= new EventoDAO();
+//            Integer categoriaid = (Integer) getIntent().getSerializableExtra("idcategoria");
 //            eventos = (ArrayList<Evento>) daoE.EventosPorCategoria(categoriaid);
 //
-//            Intent i=new Intent(ListagemEventosActivity.this, MapsActivity.class);
+//            Intent i = new Intent(ListagemEventosActivity.this, MapsActivity.class);
 //            i.putExtra("endereco", eventos.get(position).getEndereco());
 //
 //            startActivity(i);
