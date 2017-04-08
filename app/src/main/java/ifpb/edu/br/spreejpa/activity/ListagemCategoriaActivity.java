@@ -16,28 +16,19 @@ import ifpb.edu.br.spreejpa.dao.CategoriaDAO;
 import ifpb.edu.br.spreejpa.R;
 import ifpb.edu.br.spreejpa.model.Categoria;
 
-public class ListagemCategoriaActivity extends AppCompatActivity implements Serializable{
+public class ListagemCategoriaActivity extends AppCompatActivity implements Serializable {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listagem_categoria);
 
-//        Categoria c1= new Categoria("Forro");
-//        Categoria c2= new Categoria("Rock");
-
-//        Categoria c3= new Categoria("Eletronica");
-
-
         ArrayList<Categoria> Categorias = null;
         CategoriaDAO daoC = new CategoriaDAO(this);
 
-//        daoC.insert(c1);
-//        daoC.insert(c2);
-//        daoC.insert(c3);
         Categorias = (ArrayList<Categoria>) daoC.get();
-        List<String> nomes = new ArrayList <String>();
+        List<String> nomes = new ArrayList<String>();
 
-        for(Categoria cat:Categorias){
+        for (Categoria cat : Categorias) {
             nomes.add(cat.getNome());
         }
 
@@ -47,16 +38,17 @@ public class ListagemCategoriaActivity extends AppCompatActivity implements Seri
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new OnClickList());
     }
-    private class OnClickList implements AdapterView.OnItemClickListener{
-    @Override
-        public void onItemClick(AdapterView<?> parent,View view,int position,long id){
 
-        CategoriaDAO daoC = new CategoriaDAO(ListagemCategoriaActivity.this);
-        ArrayList<Categoria> Categorias = null;
-        Categorias = (ArrayList<Categoria>) daoC.get();
+    private class OnClickList implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            Intent i=new Intent(ListagemCategoriaActivity.this, ListagemEventosActivity.class);
-            i.putExtra("idcategoria",Categorias.get(position).getId());
+            CategoriaDAO daoC = new CategoriaDAO(ListagemCategoriaActivity.this);
+            ArrayList<Categoria> Categorias = null;
+            Categorias = (ArrayList<Categoria>) daoC.get();
+
+            Intent i = new Intent(ListagemCategoriaActivity.this, ListagemEventosActivity.class);
+            i.putExtra("idcategoria", Categorias.get(position).getId());
 
             startActivity(i);
         }

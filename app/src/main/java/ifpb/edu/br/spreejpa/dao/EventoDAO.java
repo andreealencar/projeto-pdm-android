@@ -110,6 +110,7 @@ public class EventoDAO {
 
 
         }
+
 //    public Evento getById(int id){
 //        Evento e;
 //        String colunas[] = {"id"};
@@ -121,9 +122,7 @@ public class EventoDAO {
 //                if(idEvento==id){
 //                    return
 //                }
-//
 //            }
-//
 //        }
 //    }
-    }
+}
