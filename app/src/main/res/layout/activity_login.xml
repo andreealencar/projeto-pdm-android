@@ -35,12 +35,14 @@
         android:textAlignment="center"
         android:layout_marginBottom="10dp"
         android:drawableLeft="@drawable/iconuser"
-        android:paddingLeft="20dp">
+        android:paddingLeft="20dp"
+        android:layout_gravity="center">
     </EditText>
 
 
     <EditText
         android:id="@+id/senhaUser"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -51,7 +53,9 @@
         android:textAlignment="center"
         android:layout_marginBottom="10dp"
         android:drawableLeft="@drawable/iconpassword"
-        android:paddingLeft="20dp">
+        android:paddingLeft="20dp"
+        android:layout_gravity="center"
+        >
     </EditText>
 
     <Button

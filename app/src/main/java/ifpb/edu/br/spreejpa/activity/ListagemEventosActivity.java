@@ -36,6 +36,12 @@ public class ListagemEventosActivity extends AppCompatActivity implements Serial
 
         ArrayList<Evento> eventos = null;
         EventoDAO daoE = new EventoDAO(this);
+//        Evento e1=new Evento("Virgens de Mangabeira","2424242424","Av. Epitacio Pèssoa",1000000,2);
+//        Evento e2=new Evento("Muriçoquinhas","11111111111","Av. Epitacio Pèssoa",200000,2);
+//        Evento e3=new Evento("Grito Rock","33333333333","Av. Epitacio Pèssoa",300000,2);
+//        daoE.insert(e1);
+//        daoE.insert(e2);
+//        daoE.insert(e3);
 
         Integer categoriaid = (Integer) getIntent().getSerializableExtra("idcategoria");
 
