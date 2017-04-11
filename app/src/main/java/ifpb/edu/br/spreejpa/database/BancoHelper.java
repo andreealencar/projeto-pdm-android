@@ -33,7 +33,18 @@ public class BancoHelper extends SQLiteOpenHelper
                 "endereco VARCHAR(100), "+
                 "data DATETIME, "+
                 "categoria INTEGER, FOREIGN KEY (categoria) REFERENCES Categoria(categoriaId));");
-//                "FOREIGN KEY REFERENCES Categoria(categoriaId));");
+
+        // Popular banco com as categorias e um usuario admin para demonstração.
+        db.execSQL("INSERT INTO Categoria Values(1, 'Forro')");
+        db.execSQL("INSERT INTO Categoria Values(2, 'Samba')");
+        db.execSQL("INSERT INTO Categoria Values(3, 'Eletronica')");
+        db.execSQL("INSERT INTO Categoria Values(4, 'Rock')");
+        db.execSQL("INSERT INTO Categoria Values(5, 'Gospel')");
+        db.execSQL("INSERT INTO Categoria Values(6, 'Sertanejo')");
+
+        db.execSQL("INSERT INTO Usuario Values (99, 'admin', 'admin@email.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',1)");
+
+
     }
 
     @Override
