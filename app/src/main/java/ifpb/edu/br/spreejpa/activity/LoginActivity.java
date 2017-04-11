@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 import ifpb.edu.br.spreejpa.R;
 import ifpb.edu.br.spreejpa.dao.UsuarioDAO;
+import ifpb.edu.br.spreejpa.model.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText login, senha;
@@ -26,6 +27,36 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         this.userDAO = new UsuarioDAO(this);
+//         Usuario us1=new Usuario("admin","admin"
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// ;
+//         us1.setAdmin(true);
+//         us1.setSenha("123");
+//         userDAO.insert(us1);
 
         this.login = (EditText) findViewById(R.id.emailUser);
         this.senha = (EditText) findViewById(R.id.senhaUser);

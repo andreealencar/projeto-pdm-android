@@ -12,14 +12,17 @@
     tools:context="ifpb.edu.br.spreejpa.activity.ListagemEventosActivity">
 
     <TextView
-        android:text="Festas esta semana:"
+        android:text="Festas esta semana"
         android:textSize="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textAlignment="center" />
 
     <ListView
         android:id="@+id/listViewEventos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="0dp"
+        android:layout_weight="9"></ListView>
 
 </LinearLayout>

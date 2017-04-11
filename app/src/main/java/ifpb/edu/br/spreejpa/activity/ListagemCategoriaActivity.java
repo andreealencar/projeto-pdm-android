@@ -25,6 +25,17 @@ public class ListagemCategoriaActivity extends AppCompatActivity implements Seri
         ArrayList<Categoria> Categorias = null;
         CategoriaDAO daoC = new CategoriaDAO(this);
 
+//        Categoria c= new Categoria("Rock");
+//        daoC.insert(c);
+//        Categoria c1= new Categoria("Forro");
+//        daoC.insert(c1);
+//        Categoria c2= new Categoria("Samba");
+//        daoC.insert(c2);
+//        Categoria c3= new Categoria("Eletronica");
+//        daoC.insert(c3);
+//        Categoria c4= new Categoria("Sertanejo");
+//        daoC.insert(c4);
+
         Categorias = (ArrayList<Categoria>) daoC.get();
         List<String> nomes = new ArrayList<String>();
 
